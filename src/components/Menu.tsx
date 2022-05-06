@@ -83,7 +83,12 @@ const Menu: React.FC = () => {
       onClick: () => {dispatch(loggedOut())}
     }
 
-
+    AddMenu({
+      title: 'Current Values',
+      url : '/values',
+      iosIcon : listOutline,
+      mdIcon : listSharp
+    })
 
   }
   else{
