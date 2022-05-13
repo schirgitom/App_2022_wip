@@ -72,3 +72,26 @@ export interface Thresholds
     Alarm : Threshold | null;
     Trip: Threshold | null;
 }
+
+export interface DataSource
+{
+    id: string | null;
+    name: string;
+    active: boolean;
+    type : string;
+}
+
+export interface MQTTDataSource extends DataSource
+{
+    host: string;
+    port: number;
+}
+
+export interface ModbusDataSource extends DataSource
+{
+    host: string;
+    port: number;
+    slaveID: number | 0;
+}
+
+export type DataSourceList = DataSource[]

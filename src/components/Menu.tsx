@@ -90,6 +90,13 @@ const Menu: React.FC = () => {
       mdIcon : listSharp
     })
 
+    AddMenu({
+      title: 'Data Sources',
+      url : '/datasources',
+      iosIcon : addOutline,
+      mdIcon : addSharp
+    })
+
   }
   else{
     securityItem =

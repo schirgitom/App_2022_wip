@@ -28,6 +28,8 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import ValuesList from "./pages/values/ValuesList";
 import ShowValue from "./pages/value/ShowValue";
+import DataSourceList from "./pages/datasources/DataSources";
+import ManageDataSource from "./pages/datasources/ManageDataSource";
 
 
 setupIonicReact();
@@ -42,7 +44,10 @@ const App: React.FC = () => {
               <Route path="/home" component={Home} exact={true} />
               <Route path="/login" component={Login} exact={true} />
               <SecureRoute path="/values" component={ValuesList} exact={true} />
+              <SecureRoute path="/datasources"  component={DataSourceList} exact={true} />
               <SecureRoute path="/values/show/:id"  component={ShowValue} exact={true} />
+              <SecureRoute path="/datasources/new" component={ManageDataSource("add")} exact={true} />
+              <SecureRoute path="/datasources/:source"  component={ManageDataSource("edit")} exact={true} />
               <Route path="/" exact={true}>
                 <Redirect to="/home" />
               </Route>

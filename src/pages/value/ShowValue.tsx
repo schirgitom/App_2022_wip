@@ -79,7 +79,7 @@ export const ShowValue: FunctionComponent<RouteComponentProps<{ id: string }>> =
             thunkDispatch(fetchValueAction(match.params.id)).finally(() => updateVisuals(value));
 
 
-    }, []);
+    }, [match.params.id]);
 
 
     //setInterval(() => {updateVisuals(value);},1000);
