@@ -32,3 +32,19 @@ export const fetchValues = (token: string) =>
             }
             return r.data as ValueList;
         })
+
+
+
+export const fetchValue = (token: string | null, name : string) =>
+    endpoint.get<Value | ErrorMessage>(`${config.getValuesControllerURI}GetLastValue?datapoint=${name}`, { headers: createAuthenticationHeader(token) })
+        // Use this to simulate network latency
+        //.then(r => executeDelayed(3000, () => r))
+        .then(r => {
+            if (r.status >= 300) {
+                const { message } = r.data as ErrorMessage;
+                throw new Error(message || r.statusText);
+            }
+            var returnval = r.data as Value;
+            console.log(returnval);
+            return returnval;
+        })
